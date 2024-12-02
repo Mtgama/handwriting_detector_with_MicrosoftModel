@@ -1,0 +1,5 @@
+flask==2.3.2
+transformers==4.34.0
+Pillow==10.0.0
+openai==0.28.0
+torch==2.0.1

@@ -52,7 +52,7 @@ Once the setup is complete, follow these steps to use the application:
 1. **Run the Flask application:**
    Start the application by running:
    ```bash
-   python app.py
+   python main.py
 
 2. **Open the application in your browser:**
 

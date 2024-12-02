@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image OCR and GPT-3</title>
+    <script>
+        function togglePromptInput() {
+            const usePromptCheckbox = document.getElementById("use_prompt");
+            const promptTextarea = document.getElementById("prompt");
+
+            // اگر تیک زده باشد، کادر فعال می‌شود و در غیر این صورت غیرفعال
+            promptTextarea.disabled = !usePromptCheckbox.checked;
+        }
+    </script>
+</head>
+<body>
+    <h1>Upload an Image for OCR and Description</h1>
+    <form action="/process" method="post" enctype="multipart/form-data">
+        <!-- آپلود تصویر -->
+        <label for="file">Select an Image:</label>
+        <input type="file" name="file" id="file" accept="image/*" required>
+        <br><br>
+
+        <!-- کادر برای پرامپت دلخواه -->
+        <label for="prompt">Custom Prompt (Optional):</label>
+        <textarea name="prompt" id="prompt" rows="4" cols="50" placeholder="Enter your custom prompt here..."></textarea>
+        <br><br>
+
+        <!-- گزینه برای استفاده یا عدم استفاده از پرامپت -->
+        <label>
+            <input type="checkbox" name="use_prompt" id="use_prompt" value="yes" checked onclick="togglePromptInput()">
+            Use GPT-3 for description
+        </label>
+        <br><br>
+
+        <!-- دکمه ارسال -->
+        <button type="submit">Upload and Process</button>
+    </form>
+    <script>
+        // فراخوانی تابع برای تنظیم وضعیت اولیه کادر نوشتن پرامپت
+        togglePromptInput();
+    </script>
+</body>
+</html>
